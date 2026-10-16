@@ -6,7 +6,7 @@ Deux modes :
      pointe vers son fichier JSON.
 
 Variables d'environnement :
-  BETPULSE_SHEET_ID  identifiant du classeur (la partie entre /d/ et /edit dans l'URL)
+  BETPULSE_SHEET_ID  identifiant du classeur (facultatif, SHEET_ID par défaut)
 
 Exemples :
   python planning/lire_planning.py                 # épreuves des 14 prochains jours
@@ -19,6 +19,7 @@ from urllib.parse import quote
 
 import pandas as pd
 
+SHEET_ID = "1qBgAZn_C7Q5KkNmbjBqAiGqa_e1FXKfNeCGssGBhnBY"  # classeur « Planning des épreuves BetPulse »
 ONGLET = "Épreuves"
 COLONNES_DATE = ["date_debut", "date_fin", "date_verification"]
 
@@ -37,7 +38,7 @@ def lire_api(sheet_id: str) -> pd.DataFrame:
 
 
 def charger(sheet_id: str | None = None, mode: str = "csv") -> pd.DataFrame:
-    sheet_id = sheet_id or os.environ["BETPULSE_SHEET_ID"]
+    sheet_id = sheet_id or os.environ.get("BETPULSE_SHEET_ID", SHEET_ID)
     df = lire_api(sheet_id) if mode == "api" else lire_csv(sheet_id)
     df = df.dropna(subset=["id"])
     for col in COLONNES_DATE:

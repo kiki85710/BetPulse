@@ -134,7 +134,7 @@ def onglet_lisez_moi(wb, nb_lignes):
             "4. L'identifiant (colonne id) ne se modifie jamais. Pour une nouvelle épreuve : CODE-SAISON-NUMÉRO, le code étant celui de l'onglet Référentiels (ex. F1-2027-025).",
             "5. Une épreuve annulée ou reportée n'est pas supprimée : changer son statut et préciser la raison dans notes.",
             "6. À chaque vérification, mettre à jour source_url et date_verification.",
-            "7. La colonne avancement se calcule seule. Pour une nouvelle ligne, recopier la formule de la ligne du dessus.",
+            "7. La colonne avancement se calcule seule. Pour une nouvelle ligne, recopier la formule de la ligne du dessus (dans Google Sheets, elle s'étend toute seule).",
         ]),
         ("Code couleur", [
             "Ligne grisée : épreuve terminée.",
