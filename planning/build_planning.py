@@ -30,7 +30,7 @@ COMPETITIONS = [
     ("CC", "Rugby", "Champions Cup", "1 ligne par journée ou par tour", "https://www.epcrugby.com"),
     ("SL", "Handball", "StarLigue", "1 ligne par journée", "https://www.lnh.fr"),
     ("MAG", "Hockey sur glace", "Ligue Magnus", "1 ligne par journée ou par tour de play-offs", "https://www.hockeyfrance.com"),
-    ("SPK", "Volley-ball", "Marmara SpikeLigue", "1 ligne par journée ou par tour de play-offs", "https://www.lnv.fr"),
+    ("SPK", "Volley-ball", "Alterna Volstar", "1 ligne par journée ou par tour de play-offs", "https://www.lnv.fr"),
     ("NBA", "Basketball", "NBA", "1 ligne par semaine + temps forts", "https://www.nba.com"),
     ("NFL", "Football américain", "NFL", "1 ligne par semaine (Week)", "https://www.nfl.com"),
     ("PGA", "Golf", "PGA Tour", "1 ligne par tournoi", "https://www.pgatour.com"),
@@ -44,6 +44,13 @@ COMPETITIONS = [
     ("SKIM", "Ski alpin", "Championnats du monde de ski alpin", "1 ligne par épreuve", "https://www.fis-ski.com"),
     ("BIA", "Biathlon", "Coupe du monde de biathlon", "1 ligne par épreuve", "https://www.biathlonworld.com"),
     ("BIAM", "Biathlon", "Championnats du monde de biathlon", "1 ligne par épreuve", "https://www.biathlonworld.com"),
+    ("EHFCL", "Handball", "EHF Champions League", "1 ligne par journée ou par tour", "https://www.eurohandball.com"),
+    ("EHFEL", "Handball", "EHF European League", "1 ligne par journée ou par tour", "https://www.eurohandball.com"),
+    ("CDFH", "Handball", "Coupe de France de handball", "1 ligne par tour", "https://www.ffhandball.fr"),
+    ("TDCH", "Handball", "Trophée des Champions de handball", "1 ligne par édition", "https://www.lnh.fr"),
+    ("IHFSG", "Handball", "IHF Super Globe", "1 ligne par édition", "https://www.ihf.info"),
+    ("MCH", "Handball", "Championnat du monde de handball", "1 ligne par édition", "https://www.ihf.info"),
+    ("QEH", "Handball", "Qualifications Euro de handball", "1 ligne par fenêtre internationale", "https://www.eurohandball.com"),
 ]
 CODE = {c[2]: c[0] for c in COMPETITIONS}
 SPORTS = sorted({c[1] for c in COMPETITIONS})
@@ -203,7 +210,7 @@ def onglet_epreuves(wb, rows):
 
     # Listes déroulantes alimentées par l'onglet Référentiels, sur une plage qui dépasse la table
     fin_dv = der + 500
-    for col, plage in [("B", "'Référentiels'!$H$2:$H$30"), ("C", "'Référentiels'!$C$2:$C$40"),
+    for col, plage in [("B", "'Référentiels'!$H$2:$H$30"), ("C", "'Référentiels'!$C$2:$C$60"),
                        ("O", "'Référentiels'!$J$2:$J$10"), ("N", "'Référentiels'!$K$2:$K$10"),
                        ("P", "'Référentiels'!$L$2:$L$5")]:
         dv = DataValidation(type="list", formula1=f"={plage}", allow_blank=True, showErrorMessage=True,

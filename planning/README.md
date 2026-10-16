@@ -2,7 +2,7 @@
 
 | Fichier | Rôle |
 |---|---|
-| `epreuves.csv` | Données de référence : une ligne par épreuve, 25 compétitions, saison 2026-2027 et suivantes. |
+| `epreuves.csv` | Données de référence : une ligne par épreuve, 32 compétitions, saison 2026-2027 et suivantes. |
 | `planning_betpulse.xlsx` | Classeur généré à partir du CSV (onglets Lisez-moi, Épreuves, Référentiels), à importer dans Google Sheets. |
 | `build_planning.py` | Régénère le classeur depuis `epreuves.csv`. |
 | `consolider.py` | Fusionne des CSV de recherche, contrôle les valeurs et attribue les identifiants. |
